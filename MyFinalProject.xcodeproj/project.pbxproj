@@ -17,6 +17,7 @@
 		F98E590B1F27A651008FB6DF /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98E590A1F27A651008FB6DF /* MasterTableViewController.swift */; };
 		F9EE17911F373DE90071E0E5 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE17901F373DE90071E0E5 /* DetailTableViewController.swift */; };
 		F9EE17931F373E650071E0E5 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE17921F373E650071E0E5 /* DetailTableViewCell.swift */; };
+		F9EE17971F3750F00071E0E5 /* JsonLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EE17961F3750F00071E0E5 /* JsonLoading.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F98E590A1F27A651008FB6DF /* MasterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
 		F9EE17901F373DE90071E0E5 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		F9EE17921F373E650071E0E5 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		F9EE17961F3750F00071E0E5 /* JsonLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonLoading.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F93BC1EF1F34CE49009083B9 /* RealTimeCourse.swift */,
+				F9EE17961F3750F00071E0E5 /* JsonLoading.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				F98E590B1F27A651008FB6DF /* MasterTableViewController.swift in Sources */,
 				F9EE17931F373E650071E0E5 /* DetailTableViewCell.swift in Sources */,
 				F98E59091F27A63D008FB6DF /* MasterTableViewCell.swift in Sources */,
+				F9EE17971F3750F00071E0E5 /* JsonLoading.swift in Sources */,
 				F98E58F41F279A9F008FB6DF /* AppDelegate.swift in Sources */,
 				F93BC1F01F34CE49009083B9 /* RealTimeCourse.swift in Sources */,
 				F98E58FC1F279A9F008FB6DF /* MyFinalProject.xcdatamodeld in Sources */,

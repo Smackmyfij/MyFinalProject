@@ -9,6 +9,7 @@
 import UIKit
 
 class MasterTableViewCell: UITableViewCell {
+    @IBOutlet weak var exchangeRatesLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

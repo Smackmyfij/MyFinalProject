@@ -13,10 +13,12 @@ class RealTimeCourse
 {
     var base = String()
     var date = String()
+    var rates = Dictionary<String,Double>()
     
-    init(base: String, date: String)
+    init(base: String, date: String, rates: Dictionary<String, Double>)
     {
         self.base = base
         self.date = date
+        self.rates = rates
     }
 }
