@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wAL-Fu-693">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Master Table View Controller-->
+        <scene sceneID="EXF-HG-0fb">
+            <objects>
+                <tableViewController id="Vu7-3H-4RF" customClass="MasterTableViewController" customModule="MyFinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rnk-ww-WcB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MasterTableViewIdentifier" id="OHO-xN-ifO" customClass="MasterTableViewCell" customModule="MyFinalProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OHO-xN-ifO" id="Qeb-Ni-EZN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Vu7-3H-4RF" id="6fZ-uB-RhM"/>
+                            <outlet property="delegate" destination="Vu7-3H-4RF" id="kyC-Kq-bf5"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="masterTableView" destination="rnk-ww-WcB" id="FiE-10-UPT"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WSg-vz-ZEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-922" y="426"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="NaM-Qd-K2S">
+            <objects>
+                <splitViewController id="wAL-Fu-693" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="xfI-dG-FII" kind="relationship" relationship="detailViewController" id="oiK-Sh-ubB"/>
+                        <segue destination="Vu7-3H-4RF" kind="relationship" relationship="masterViewController" id="MaY-dZ-JZy"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x3j-iC-KRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18" y="-335"/>
+        </scene>
+        <!--Detail Table View Controller-->
+        <scene sceneID="Q8o-6P-XpC">
+            <objects>
+                <tableViewController id="xfI-dG-FII" customClass="DetailTableViewController" customModule="MyFinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IP6-8p-RsG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailTableViewCellIdentifier" id="kfv-Kc-iFT" customClass="DetailTableViewCell" customModule="MyFinalProject" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kfv-Kc-iFT" id="8HL-81-9tk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xfI-dG-FII" id="ZPj-qE-tnR"/>
+                            <outlet property="delegate" destination="xfI-dG-FII" id="O8D-oj-2YQ"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="detailTableView" destination="IP6-8p-RsG" id="KW4-0Z-6fF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ynZ-D2-amo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="426"/>
+        </scene>
+    </scenes>
+</document>
