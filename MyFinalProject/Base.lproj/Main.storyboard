@@ -54,6 +54,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ratesConverterLabel" destination="uxJ-6R-5js" id="VGd-Ov-T7u"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

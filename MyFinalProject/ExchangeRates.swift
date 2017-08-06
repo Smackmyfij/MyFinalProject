@@ -9,7 +9,7 @@
 import Foundation
 
 
-class RealTimeCourse
+class ExchangeRates
 {
     var base = String()
     var date = String()

@@ -11,6 +11,7 @@ import UIKit
 class MasterTableViewCell: UITableViewCell {
     @IBOutlet weak var exchangeRatesLabel: UILabel!
 
+    @IBOutlet weak var ratesConverterLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

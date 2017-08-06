@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JsonLoading: RealTimeCourse
+class JsonLoading: ExchangeRates
 {
     func jsonDownloading()
     {
@@ -37,7 +37,7 @@ class JsonLoading: RealTimeCourse
                         
                         print("base = \(base), date = \(date), rates = \(rates)")
                         
-                        let usdRates = RealTimeCourse(base: base, date: date, rates: rates)
+                        let usdRates = ExchangeRates(base: base, date: date, rates: rates)
                     }
                 }
             }
