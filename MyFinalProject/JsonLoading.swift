@@ -43,7 +43,7 @@ class JsonLoading: ExchangeRates
             }
             task.resume()
         }
-        return jsonDownloading()
+        return 
     }
     
 }

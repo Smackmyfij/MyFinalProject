@@ -9,10 +9,14 @@
 import UIKit
 
 class DetailTableViewController: UITableViewController {
-    @IBOutlet var detailTableView: UITableView!
+  
 
+    var names = ["a", "b", "c", "d"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,26 +39,34 @@ class DetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return names.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailTableViewCellIdentifier", for: indexPath)
 
+        if let myCell = cell as? DetailTableViewCell
+        {
+            print("ok")
+            myCell.detailLabel.text = names[indexPath.row]
+            return myCell
+        }
+        
+    
         // Configure the cell...
 
         return cell
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+ 
 
     /*
     // Override to support editing the table view.

@@ -11,16 +11,17 @@ import UIKit
 
 class MasterTableViewController: UITableViewController {
     
-    @IBOutlet weak var masterTableView: UITableView!
+    
 
     let financeArray = Array<Any>()
     
+    var masterCells = ["Exchange Rates", "Converter"]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.tableView.reloadData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -48,15 +49,22 @@ class MasterTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return masterCells.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MasterTableViewCellIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        if let myCell = cell as? MasterTableViewCell
+        {
+            
+            myCell.exchangeRatesLabel.text = masterCells.description
+            myCell.exchangeRatesLabel.textColor = UIColor.black
+            
+            
+            // Configure the cell...
+        }
         return cell
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailTableViewCell: UITableViewCell {
+    @IBOutlet weak var detailLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,7 +19,16 @@ class DetailTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+        if selected
+        {
+            detailLabel.textColor = UIColor.black
+        }
+        
+        
         // Configure the view for the selected state
     }
+    
+    
+    
 
 }
