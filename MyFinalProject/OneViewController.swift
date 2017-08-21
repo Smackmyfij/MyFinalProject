@@ -7,20 +7,23 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class OneViewController: UIViewController {
-    
-    
-    
-    
-    
 
     @IBOutlet weak var oneTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let some = JsonLoading()
         
         
+   
+        
+      
+        
+        let anotherSome = some.jsonDownloading()
+        print(anotherSome.keys)
 
         // Do any additional setup after loading the view.
     }
@@ -47,22 +50,19 @@ extension OneViewController: UITableViewDataSource
 {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OneTableViewCellIdentidier", for: indexPath)
+        let cell : OneTableViewCell = tableView.dequeueReusableCell(withIdentifier: "OneTableViewCellIdentidier", for: indexPath) as! OneTableViewCell
         
-        if let myCell = cell as? OneTableViewCell
-        {
-            myCell.oneLabel.text = baseRate[indexPath.row]
-            
-            return myCell
-        }
         return cell
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return baseRate.count
+        return 2
     }
+    
 }
+
+
 
 
 

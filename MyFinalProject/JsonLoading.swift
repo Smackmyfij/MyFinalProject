@@ -7,11 +7,21 @@
 //
 
 import Foundation
+import SwiftyJSON
 
-class JsonLoading: ExchangeRates
+protocol JsonLoadingDelegate:class{
+    func reciveData(dict:[String: Any])
+
+}
+class JsonLoading
 {
-    func jsonDownloading()
+    var exchangeRates = [String: Any]()
+    
+    weak var delegate: JsonLoadingDelegate?
+    
+    func jsonDownloading() -> [String: Any]
     {
+        
         if let url = URL(string: "http://api.fixer.io/latest?base=USD")
         {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -21,29 +31,42 @@ class JsonLoading: ExchangeRates
                     print(taskError.localizedDescription)
                     return
                 }
-                
                 if let downloadedData = data
                 {
-                    if let json =  (try? JSONSerialization.jsonObject(with: downloadedData, options: [])) as? [String: Any]
+                    let json = JSON(downloadedData)
+                    
+                    let base = json["base"].stringValue,
+                    date = json["date"].stringValue,
+                    rates = json["rates"].dictionaryObject
+                    
+                    self.exchangeRates = rates!
+                    
+                    self.delegate?.reciveData(dict: rates!)
+                    
+                    for keys in rates!
                     {
-                        guard let base = json["base"] as? String,
-                            let date = json["date"] as? String,
-                            let rates = json["rates"] as? [String: Double]
-                            
-                            else
-                        {
-                            return
-                        }
-                        
-                        print("base = \(base), date = \(date), rates = \(rates)")
-                        
-                        let usdRates = ExchangeRates(base: base, date: date, rates: rates)
+                        print(keys)
                     }
+                    
                 }
             }
             task.resume()
         }
-        return 
+        return exchangeRates
     }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,12 +13,12 @@ class ExchangeRates
 {
     var base = String()
     var date = String()
-    var rates = Dictionary<String,Double>()
+    var rates = [String: Any]()
     
     
     init(base: String,
          date: String,
-         rates: Dictionary<String, Double>)
+         rates: [String: Any])
     {
         self.base = base
         self.date = date
@@ -26,12 +26,6 @@ class ExchangeRates
     }
 }
 
-struct MainMenu
-{
-    var mainMenu: String
-    var mainMenuDescription: String
-}
 
-var mainMenuArray: MainMenu = MainMenu(mainMenu: "ExRates",mainMenuDescription: "Exchange Rates")
 
 
