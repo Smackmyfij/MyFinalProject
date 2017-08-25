@@ -9,44 +9,46 @@
 import UIKit
 import SwiftyJSON
 
-class OneViewController: UIViewController {
-
+class OneViewController: UIViewController{
+    
+    let some = JsonLoading()
+    var dictOfRate = [String:Any](),
+    baseOfRate = String(),
+    dateOfRate = String()
+    
     @IBOutlet weak var oneTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let some = JsonLoading()
+        some.jsonDownloading()
         
-        
-   
-        
-      
-        
-        let anotherSome = some.jsonDownloading()
-        print(anotherSome.keys)
-
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+        
+        // Dispose of any resources that can be recreated.
     }
-    */
+   
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
 
-extension OneViewController: UITableViewDataSource
+extension OneViewController: UITableViewDataSource, JsonLoadingDelegate
 {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
@@ -59,6 +61,25 @@ extension OneViewController: UITableViewDataSource
     {
         return 2
     }
+    
+    func reciveData(dict:[String: Any])
+    {
+        print(dict)
+        dictOfRate = dict
+        
+    }
+    func baseValue(base: String)
+    {
+        baseOfRate = base
+        print(base)
+        
+    }
+    func dateValue(date: String)
+    {
+        dateOfRate = date
+        print(date)
+    }
+    
     
 }
 

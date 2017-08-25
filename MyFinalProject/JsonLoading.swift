@@ -9,19 +9,17 @@
 import Foundation
 import SwiftyJSON
 
-protocol JsonLoadingDelegate:class{
-    func reciveData(dict:[String: Any])
-
+protocol JsonLoadingDelegate: class{
+    func reciveData(dict: [String: Any])
+    func baseValue(base: String)
+    func dateValue(date: String)
+    
 }
 class JsonLoading
 {
-    var exchangeRates = [String: Any]()
-    
     weak var delegate: JsonLoadingDelegate?
-    
-    func jsonDownloading() -> [String: Any]
+    func jsonDownloading()
     {
-        
         if let url = URL(string: "http://api.fixer.io/latest?base=USD")
         {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -35,25 +33,20 @@ class JsonLoading
                 {
                     let json = JSON(downloadedData)
                     
-                    let base = json["base"].stringValue,
+                    var base = json["base"].stringValue,
                     date = json["date"].stringValue,
                     rates = json["rates"].dictionaryObject
                     
-                    self.exchangeRates = rates!
-                    
                     self.delegate?.reciveData(dict: rates!)
-                    
-                    for keys in rates!
-                    {
-                        print(keys)
-                    }
-                    
+                    self.delegate?.dateValue(date: date)
+                    self.delegate?.baseValue(base: base)
+                    print("data was download")
                 }
             }
             task.resume()
         }
-        return exchangeRates
     }
+    
 }
 
 
