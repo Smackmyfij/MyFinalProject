@@ -9,20 +9,40 @@
 import UIKit
 import SwiftyJSON
 
-class OneViewController: UIViewController{
+class ExchangeRatesViewController: UIViewController,  JsonLoadingDelegate{
     
+    let image = UIImage(named: "goldImage1")
     let some = JsonLoading()
     var dictOfRate = [String:Any](),
-    baseOfRate = String(),
-    dateOfRate = String()
+    baseOfRateUSD = String(),
+    dateOfRate = String(),
+    exchangeRatesArray = [String]()
     
-    @IBOutlet weak var oneTableView: UITableView!
+    @IBOutlet weak var exchangeRatesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.exchangeRatesTableView.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundImage1")!)
+        some.delegate = self
+        exchangeRatesArray.append(baseOfRateUSD)
         some.jsonDownloading()
-        
         // Do any additional setup after loading the view.
+    }
+    func reciveData(dict:[String: Any])
+    {
+        dictOfRate = dict
+        print("data was delegate")
+        
+    }
+    func baseValue(base: String)
+    {
+        baseOfRateUSD = base
+        print(baseOfRateUSD)
+        
+    }
+    func dateValue(date: String)
+    {
+        dateOfRate = date
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +55,7 @@ class OneViewController: UIViewController{
         
         // Dispose of any resources that can be recreated.
     }
-   
+    
     /*
      // MARK: - Navigation
      
@@ -45,40 +65,30 @@ class OneViewController: UIViewController{
      // Pass the selected object to the new view controller.
      }
      */
-
+    
 }
 
-extension OneViewController: UITableViewDataSource, JsonLoadingDelegate
+extension ExchangeRatesViewController: UITableViewDataSource
 {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell : OneTableViewCell = tableView.dequeueReusableCell(withIdentifier: "OneTableViewCellIdentidier", for: indexPath) as! OneTableViewCell
-        
+        let cell : ExchangeRatesTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ExchangeRatesTableViewCellIdentifier", for: indexPath) as! ExchangeRatesTableViewCell
+        if exchangeRatesArray.isEmpty == true
+        {
+        cell.baseRateLabel.text = exchangeRatesArray[indexPath.row]
+            print(exchangeRatesArray.description)
+        } else {
+            print("data dont load to Array")
+        }
         return cell
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 2
+        return exchangeRatesArray.count
     }
     
-    func reciveData(dict:[String: Any])
-    {
-        print(dict)
-        dictOfRate = dict
-        
-    }
-    func baseValue(base: String)
-    {
-        baseOfRate = base
-        print(base)
-        
-    }
-    func dateValue(date: String)
-    {
-        dateOfRate = date
-        print(date)
-    }
+    
     
     
 }

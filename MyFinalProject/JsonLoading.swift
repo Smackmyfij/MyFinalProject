@@ -13,7 +13,6 @@ protocol JsonLoadingDelegate: class{
     func reciveData(dict: [String: Any])
     func baseValue(base: String)
     func dateValue(date: String)
-    
 }
 class JsonLoading
 {
@@ -33,7 +32,7 @@ class JsonLoading
                 {
                     let json = JSON(downloadedData)
                     
-                    var base = json["base"].stringValue,
+                    let base = json["base"].stringValue,
                     date = json["date"].stringValue,
                     rates = json["rates"].dictionaryObject
                     
